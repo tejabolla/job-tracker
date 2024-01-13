@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <h1>Job Application Tracker</h1>
+
+    <div class="container">
+        <div class="form-section" id="jobForm">
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" required autocomplete="off">
+
+            <label for="jobLink">Job Link:</label>
+            <input type="url" id="jobLink" name="jobLink" required autocomplete="off">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required autocomplete="off"></textarea>
+
+            <label for="roleName">Role Name:</label>
+            <input type="text" id="roleName" name="roleName" required autocomplete="off">
+
+            <label for="dateApplied">Date Applied:</label>
+            <input type="date" id="dateApplied" name="dateApplied" required>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="applied" selected>Applied</option>
+                <option value="interview">Interview</option>
+                <option value="offer">Offer Received</option>
+                <option value="rejected">Rejected</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <button type="button" onclick="addJob()">Add Job</button>
+
+            <div id="errorMessages" class="error"></div>
+        </div>
+
+        <table id="jobTable">
+        <!-- Add this code inside the <thead> section of the table -->
+
+            <thead>
+                <tr id="filterRow">
+                    <th><input type="text" oninput="filterTable(0)" placeholder="Filter"></th>
+                    <th><input type="text" oninput="filterTable(1)" placeholder="Filter"></th>
+                    <th><input type="text" oninput="filterTable(2)" placeholder="Filter"></th>
+                    <th><input type="text" oninput="filterTable(3)" placeholder="Filter"></th>
+                    <th><input type="text" oninput="filterTable(4)" placeholder="Filter"></th>
+                    <th><input type="text" oninput="filterTable(5)" placeholder="Filter"></th>
+                </tr>
+                <tr>
+                    <th onclick="sortTable(0)">Company</th>
+                    <th onclick="sortTable(1)">Job Link</th>
+                    <th onclick="sortTable(2)">Description</th>
+                    <th onclick="sortTable(3)">Role Name</th>
+                    <th onclick="sortTable(4)">Date Applied</th>
+                    <th onclick="sortTable(5)">Status</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <!-- Table content will be added dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/public/index.js"></script>
+</body>
+</html>

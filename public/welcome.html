@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2b2b2b; /* Darker background color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .welcome-container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff; /* White text color */
+    }
+
+    .buttons-container {
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #4caf50;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .signup-button {
+      background-color: #3498db;
+    }
+
+    .signup-button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Login Form Styles */
+    .login-form {
+      margin-top: 20px;
+      background-color: #444;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .form-submit:hover {
+      background-color: #2980b9;
+    }
+    
+    .toggler {
+        padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="welcome-container">
+    <h1>Welcome to Job Tracker</h1>
+
+    <!-- Login Form -->
+    <div class="login-form" id="loginForm" >
+      <form id="loginForm-form"  method="post" action="/signin">
+        <input type="text" class="form-input" placeholder="Username" id="username" name="username" required>
+        <input type="password" class="form-input" placeholder="Password" id="password" name="password" required>
+        <button type="submit" class="form-submit" id="signinup">SignIn</button>
+      </form>
+
+      <div id='toggler' class='toggler' onclick="toggle()">New user?  SignUp</div>
+    </div>
+    
+
+  </div>
+
+  <script>
+    function toggle() {
+        console.log(document.getElementById('signinup').value)
+        if(document.getElementById('signinup').textContent.trim() == 'SignIn'){
+            document.getElementById('signinup').textContent ='SignUp';
+            document.getElementById('toggler').textContent ='Existing user?  SignIn';
+            document.getElementById('loginForm-form').action ='/signup';
+
+        }
+        else{
+            document.getElementById('signinup').textContent ='SignIn';
+            document.getElementById('toggler').textContent ='New user?  SignUp';
+            document.getElementById('loginForm-form').action ='/signin';
+
+        }
+    }
+
+    function access(event){
+        if(document.getElementById('signinup').textContent.trim() =='SignIn')
+        login(event);
+        else
+        signup(event);
+    }
+    function login(event) {
+      event.preventDefault();
+
+      // Get the username and password from the form
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Simulate user existence check (replace with your actual authentication logic)
+      if (checkUser(username, password)) {
+        // alert('Login successful! Redirect to the dashboard.'); // Replace with actual redirection logic
+        console.log('checked');
+    } else {
+        // alert('Invalid username or password. Please try again.');
+        console.log('error. Checked')
+      }
+    }
+
+    function signup(event){
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log('Please press signup');
+    }
+
+    // Simulated user existence check
+    function checkUser(username, password) {
+      // Replace this with your actual authentication logic
+      // For simplicity, this function always returns true
+      return true;
+    }
+  </script>
+</body>
+
+</html>

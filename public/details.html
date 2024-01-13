@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #2b2b2b; /* Dark background color */
+            color: #ffffff; /* Light text color */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .details-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #444444; /* Dark form background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff; /* Light text color */
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+        a{
+            color: rgb(72, 176, 220);
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Details</h1>
+
+    <div class="details-container" id="jobDetails">
+        <!-- Content will be added dynamically -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Extract query parameters from the URL
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+
+            // Get job details from query parameters
+            var company = urlParams.get('company');
+            var jobLink = urlParams.get('jobLink');
+            var description = urlParams.get('description');
+            var roleName = urlParams.get('roleName');
+            var dateApplied = urlParams.get('dateApplied');
+            var status = urlParams.get('status');
+
+            // Display job details on the page
+            var detailsContainer = document.getElementById('jobDetails');
+            detailsContainer.innerHTML = `
+                <label>Company:</label>
+                <p>${company}</p>
+                
+                <label>Job Link:</label>
+                <p><a href="${jobLink}" target="_blank" >${jobLink}</a></p>
+                
+                <label>Description:</label>
+                <p>${description}</p>
+                
+                <label>Role Name:</label>
+                <p>${roleName}</p>
+                
+                <label>Date Applied:</label>
+                <p>${dateApplied}</p>
+                
+                <label>Status:</label>
+                <p>${status}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

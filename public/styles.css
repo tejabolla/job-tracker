@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #2b2b2b; /* Dark background color */
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.form-section {
+    background-color: #444444; /* Dark form background color */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff; /* Light text color */
+}
+
+input, textarea, select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #333333; /* Dark input background color */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #555555; /* Dark border color */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #444444; /* Dark table background color */
+    color: #ffffff; /* Light text color */
+}
+
+th, td {
+    border: 1px solid #555555; /* Dark border color */
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+th {
+    background-color: #333333; /* Dark header background color */
+}
+
+a {
+    color: #3498db; /* Link color */
+    text-decoration: underline;
+}
+
+.editable {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.editable:hover {
+    background-color: #555555;
+}
+
+.editable.active {
+    background-color: #555555;
+}
+
+.error {
+    color: #ff6347; /* Tomato color for error messages */
+    margin-top: 5px;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-section {
+        padding: 20px;
+        max-width: none; /* Remove the max-width for wider screens */
+        margin: 0; /* Remove the margin for wider screens */
+        height: 80vh;
+        width: 30vw;
+        position: fixed; 
+        margin-top: 10vh;
+    }
+
+    table {
+        margin-left: 40vw;
+        margin-top: 10vh;
+        max-width: 70%; /* Make the table responsive */
+    }
+    h1{
+        /* margin-left: 2vw; */
+        position: fixed;
+        top: 0;
+        left: 4vw;
+        
+        color: white;
+        z-index: 1;
+    }
+
+    /* .container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 70vh;
+        
+    } */
+}
+
+
+/* Add the following styles at the end of your existing CSS */
+
+
+
+
+
+
+
+
+
+
